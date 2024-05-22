@@ -19,7 +19,36 @@ export class UserService {
   }
 
   authenticate(userNameOrEmail: string, password: string): Observable<boolean> {
-    throw new Error('not implemented');
+    //if userNameOrEmail = USERS.username || USERS.email && password = USERS.password
+    //accepts 2 fields from login
+    //returns boolean
+
+    for ( let i = 0; i < USERS.length; i++) {
+      if ((userNameOrEmail == USERS[i].username || USERS[i].email) && (password == USERS[i].password)) {
+        console.log("It's a match!");
+      }
+      else {
+        console.log("No dice");
+        //throw new Error('Invalid login');
+      }
+    }
+
+    return of (true);
+
+
+    // for (let i = 0; i < USERS.length; i++) {
+    //   console.log("Username: ", USERS[i].username);
+    //   console.log("Email: ", USERS[i].email);
+    //   console.log("Password: ", USERS[i].password);
+    // }
+
+    // console.log("The email is :", userNameOrEmail);
+    // console.log("The password is :", password);
+    // console.log(USERS[0].username);
+    // console.log(USERS[0].email);
+    // console.log(USERS[0].password)
+
+    //throw new Error('not implemented');
   }
 }
 
